@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Comunidade - SportLink</title>
+    <script>
+        // aplica o tema salvo antes de desenhar a página
+        if (localStorage.getItem("tema") === "escuro") {
+            document.documentElement.setAttribute("data-theme", "dark");
+        }
+    </script>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+</head>
+<body>
+
+    <!-- CABEÇALHO -->
+    <header class="cabecalho">
+        <div class="cabecalho-conteudo">
+            <a href="index.html" class="logo">Sport<span>Link</span></a>
+            <button class="botao-menu" id="botaoMenu">☰</button>
+            <nav class="navegacao" id="menuNavegacao">
+                <a href="index.html" class="link-menu">Início</a>
+                <a href="explorar.html" class="link-menu">Explorar</a>
+                <a href="feed.html" class="link-menu ativo">Comunidade</a>
+                <a href="oportunidades.html" class="link-menu">Oportunidades</a>
+            </nav>
+            <div class="botoes-cabecalho">
+                <button class="botao-tema" id="botaoTema" type="button" aria-label="Alternar tema claro/escuro" title="Alternar tema">
+                    <svg class="icone-lua" viewBox="0 0 24 24"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"></path></svg>
+                    <svg class="icone-sol" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"></circle><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"></path></svg>
+                </button>
+                <button class="botao botao-pequeno" id="botaoEntrar">Entrar</button>
+                <div class="area-usuario escondido" id="areaUsuario">
+                    <a href="perfil.html" class="link-usuario" id="linkUsuario"><span id="nomeUsuario"></span><small id="tipoUsuario"></small></a>
+                    <button class="botao botao-contorno botao-pequeno" id="botaoSair">Sair</button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div class="layout-feed">
+
+        <!-- MENU LATERAL -->
+        <aside class="card menu-lateral">
+            <a href="index.html">🏠 Início</a>
+            <a href="explorar.html">🔎 Explorar</a>
+            <a href="perfil.html" class="link-meu-perfil">👤 Meu perfil</a>
+            <a href="oportunidades.html">🎯 Oportunidades</a>
+            <a href="explorar.html">🤝 Conexões</a>
+            <a href="feed.html" class="ativo">🔔 Notificações</a>
+        </aside>
+
+        <!-- FEED CENTRAL -->
+        <main>
+            <div class="card criar-publicacao">
+                <div class="criar-linha">
+                    <div class="avatar avatar-pequeno">VC</div>
+                    <textarea id="textoNovaPublicacao" class="campo-texto" placeholder="Compartilhe uma conquista, treino ou novidade..."></textarea>
+                </div>
+                <div class="criar-botao">
+                    <button id="botaoPublicar" class="botao botao-pequeno">Publicar</button>
+                </div>
+            </div>
+
+            <div id="listaPublicacoes">
+
+                <!-- Publicação 1 -->
+                <article class="card publicacao">
+                    <div class="publicacao-topo">
+                        <div class="avatar avatar-pequeno">RL</div>
+                        <div>
+                            <strong>Rafael Lima</strong>
+                            <span class="legenda">Basquete · há 2 horas</span>
+                        </div>
+                    </div>
+                    <p class="texto-publicacao">Conquistei a medalha de prata no torneio regional! Muito orgulho de toda a equipe e do esforço dos últimos meses. 🥈</p>
+                    <img class="foto-publicacao" src="https://images.unsplash.com/photo-1546519638-68e109498ffc?w=900&q=80" alt="Jogador de basquete em quadra">
+                    <p class="contagem legenda"><span class="numero-curtidas">24</span> curtidas · <span class="numero-comentarios">3</span> comentários</p>
+                    <div class="acoes-publicacao">
+                        <button class="botao-acao" onclick="curtir(this)">👍 Curtir</button>
+                        <button class="botao-acao" onclick="comentar(this)">💬 Comentar</button>
+                        <button class="botao-acao" onclick="compartilhar()">↗ Compartilhar</button>
+                    </div>
+                    <div class="lista-comentarios"></div>
+                </article>
+
+                <!-- Publicação 2 -->
+                <article class="card publicacao">
+                    <div class="publicacao-topo">
+                        <div class="avatar avatar-pequeno">MC</div>
+                        <div>
+                            <strong>Mariana Costa</strong>
+                            <span class="legenda">Vôlei · há 5 horas</span>
+                        </div>
+                    </div>
+                    <p class="texto-publicacao">Treino de hoje focado em saque e levantamento. Cada semana sinto minha evolução! 💪</p>
+                    <img class="foto-publicacao" src="https://images.unsplash.com/photo-1612872087720-bb876e2e67d1?w=900&q=80" alt="Jogadora de vôlei em treino">
+                    <p class="contagem legenda"><span class="numero-curtidas">41</span> curtidas · <span class="numero-comentarios">5</span> comentários</p>
+                    <div class="acoes-publicacao">
+                        <button class="botao-acao" onclick="curtir(this)">👍 Curtir</button>
+                        <button class="botao-acao" onclick="comentar(this)">💬 Comentar</button>
+                        <button class="botao-acao" onclick="compartilhar()">↗ Compartilhar</button>
+                    </div>
+                    <div class="lista-comentarios"></div>
+                </article>
+
+                <!-- Publicação 3 -->
+                <article class="card publicacao">
+                    <div class="publicacao-topo">
+                        <div class="avatar avatar-pequeno">CM</div>
+                        <div>
+                            <strong>Carlos Mendes</strong>
+                            <span class="legenda">Técnico de futebol · ontem</span>
+                        </div>
+                    </div>
+                    <p class="texto-publicacao">Atenção, jovens atletas! Estamos organizando uma avaliação esportiva neste mês. Mais detalhes na página de oportunidades. (exemplo fictício)</p>
+                    <p class="contagem legenda"><span class="numero-curtidas">17</span> curtidas · <span class="numero-comentarios">2</span> comentários</p>
+                    <div class="acoes-publicacao">
+                        <button class="botao-acao" onclick="curtir(this)">👍 Curtir</button>
+                        <button class="botao-acao" onclick="comentar(this)">💬 Comentar</button>
+                        <button class="botao-acao" onclick="compartilhar()">↗ Compartilhar</button>
+                    </div>
+                    <div class="lista-comentarios"></div>
+                </article>
+
+            </div>
+        </main>
+
+        <!-- COLUNA LATERAL -->
+        <aside class="coluna-lateral">
+            <div class="card">
+                <h3>Sugestões de atletas</h3>
+                <div class="sugestao">
+                    <div class="avatar avatar-pequeno">LF</div>
+                    <div class="texto"><strong>Lucas Ferreira</strong><span class="legenda">Futebol · Santos-SP</span></div>
+                    <button class="botao botao-pequeno botao-conectar">Conectar</button>
+                </div>
+                <div class="sugestao">
+                    <div class="avatar avatar-pequeno">BN</div>
+                    <div class="texto"><strong>Beatriz Nogueira</strong><span class="legenda">Natação · Guarujá-SP</span></div>
+                    <button class="botao botao-pequeno botao-conectar">Conectar</button>
+                </div>
+            </div>
+
+            <div class="card">
+                <h3>Oportunidades recentes</h3>
+                <div class="item-oportunidade"><strong>Peneira Sub-20</strong><br><span class="legenda">Santos FC Academy (fictício)</span></div>
+                <div class="item-oportunidade"><strong>Bolsa esportiva de vôlei</strong><br><span class="legenda">Projeto Vôlei Futuro (fictício)</span></div>
+                <div class="item-oportunidade"><a href="oportunidades.html">Ver todas →</a></div>
+            </div>
+
+            <div class="card">
+                <h3>Complete seu perfil</h3>
+                <p class="legenda">Perfis completos recebem mais atenção. Faltam algumas informações!</p>
+                <div class="barra"><div></div></div>
+                <a href="perfil.html" class="botao botao-contorno botao-pequeno link-meu-perfil">Completar perfil</a>
+            </div>
+        </aside>
+
+    </div>
+
+    <!-- RODAPÉ -->
+    <footer class="rodape">
+        <div class="logo">Sport<span>Link</span></div>
+        <p>Conectando talentos a oportunidades. Publicações fictícias para demonstração.</p>
+    </footer>
+
+</body>
+</html>

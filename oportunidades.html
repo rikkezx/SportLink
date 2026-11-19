@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Oportunidades - SportLink</title>
+    <script>
+        // aplica o tema salvo antes de desenhar a página
+        if (localStorage.getItem("tema") === "escuro") {
+            document.documentElement.setAttribute("data-theme", "dark");
+        }
+    </script>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+</head>
+<body>
+
+    <!-- CABEÇALHO -->
+    <header class="cabecalho">
+        <div class="cabecalho-conteudo">
+            <a href="index.html" class="logo">Sport<span>Link</span></a>
+            <button class="botao-menu" id="botaoMenu">☰</button>
+            <nav class="navegacao" id="menuNavegacao">
+                <a href="index.html" class="link-menu">Início</a>
+                <a href="explorar.html" class="link-menu">Explorar</a>
+                <a href="feed.html" class="link-menu">Comunidade</a>
+                <a href="oportunidades.html" class="link-menu ativo">Oportunidades</a>
+            </nav>
+            <div class="botoes-cabecalho">
+                <button class="botao-tema" id="botaoTema" type="button" aria-label="Alternar tema claro/escuro" title="Alternar tema">
+                    <svg class="icone-lua" viewBox="0 0 24 24"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"></path></svg>
+                    <svg class="icone-sol" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"></circle><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"></path></svg>
+                </button>
+                <button class="botao botao-pequeno" id="botaoEntrar">Entrar</button>
+                <div class="area-usuario escondido" id="areaUsuario">
+                    <a href="perfil.html" class="link-usuario" id="linkUsuario"><span id="nomeUsuario"></span><small id="tipoUsuario"></small></a>
+                    <button class="botao botao-contorno botao-pequeno" id="botaoSair">Sair</button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section class="topo-pagina">
+            <div class="container">
+                <h1>Sua próxima oportunidade está aqui.</h1>
+                <p>Descubra peneiras, avaliações, vagas e oportunidades para desenvolver sua carreira esportiva.</p>
+                <input type="text" id="buscaOportunidades" class="campo-texto" placeholder="Buscar por nome, modalidade ou localização...">
+            </div>
+        </section>
+
+        <section class="container secao" style="padding-top: 8px;">
+            <!-- FILTROS -->
+            <div class="filtros">
+                <button class="filtro filtro-oportunidade ativo" data-filtro="todas">Todas</button>
+                <button class="filtro filtro-oportunidade" data-filtro="peneira">Peneiras</button>
+                <button class="filtro filtro-oportunidade" data-filtro="avaliacao">Avaliações</button>
+                <button class="filtro filtro-oportunidade" data-filtro="vaga">Vagas em clubes</button>
+                <button class="filtro filtro-oportunidade" data-filtro="bolsa">Bolsas esportivas</button>
+                <button class="filtro filtro-oportunidade" data-filtro="treinamento">Treinamentos</button>
+            </div>
+
+            <p class="aviso-ficticio" style="margin-bottom: 16px;">Todas as oportunidades abaixo são exemplos fictícios, criados apenas para demonstração.</p>
+
+            <!-- CARDS DE OPORTUNIDADES -->
+            <div class="grade">
+
+                <article class="card card-oportunidade" data-categoria="peneira"
+                    data-detalhes="Peneira para atletas de 18 a 20 anos. Levar documento com foto, chuteira e uniforme de treino. Inscrição gratuita e avaliação feita por comissão técnica.">
+                    <span class="etiqueta">Peneira</span>
+                    <h3>Peneira Sub-20</h3>
+                    <p class="info"><strong>Santos FC Academy</strong> (fictício)</p>
+                    <p class="info">Futebol · Sub-20</p>
+                    <p class="legenda">📍 Santos-SP · 📅 Prazo: 30/11/2026</p>
+                    <p class="descricao">Seleção de jovens atletas para compor o elenco sub-20 da próxima temporada.</p>
+                    <p class="aviso-ficticio">Exemplo fictício</p>
+                    <div class="botoes-card">
+                        <button class="botao botao-contorno botao-pequeno botao-detalhes">Ver detalhes</button>
+                        <button class="botao botao-pequeno botao-interesse">Tenho interesse</button>
+                    </div>
+                </article>
+
+                <article class="card card-oportunidade" data-categoria="avaliacao"
+                    data-detalhes="Avaliação técnica e física para jovens de 13 a 17 anos de diferentes modalidades. Haverá testes de velocidade, coordenação e fundamentos esportivos.">
+                    <span class="etiqueta">Avaliação</span>
+                    <h3>Avaliação de jovens atletas</h3>
+                    <p class="info"><strong>Elite Sports Academy</strong> (fictício)</p>
+                    <p class="info">Várias modalidades · 13 a 17 anos</p>
+                    <p class="legenda">📍 Santos-SP · 📅 Data: 15/12/2026</p>
+                    <p class="descricao">Avaliação para identificar talentos e indicar o melhor caminho de formação esportiva.</p>
+                    <p class="aviso-ficticio">Exemplo fictício</p>
+                    <div class="botoes-card">
+                        <button class="botao botao-contorno botao-pequeno botao-detalhes">Ver detalhes</button>
+                        <button class="botao botao-pequeno botao-interesse">Tenho interesse</button>
+                    </div>
+                </article>
+
+                <article class="card card-oportunidade" data-categoria="bolsa"
+                    data-detalhes="Bolsa de estudos e treinamento para atletas de vôlei de 15 a 18 anos. Inclui treinos diários, acompanhamento escolar e material esportivo.">
+                    <span class="etiqueta">Bolsa esportiva</span>
+                    <h3>Bolsa esportiva de vôlei</h3>
+                    <p class="info"><strong>Projeto Vôlei Futuro</strong> (fictício)</p>
+                    <p class="info">Vôlei · 15 a 18 anos</p>
+                    <p class="legenda">📍 São Paulo-SP · 📅 Prazo: 20/01/2027</p>
+                    <p class="descricao">Bolsa para jovens atletas que desejam unir estudos e treinamento de alto nível.</p>
+                    <p class="aviso-ficticio">Exemplo fictício</p>
+                    <div class="botoes-card">
+                        <button class="botao botao-contorno botao-pequeno botao-detalhes">Ver detalhes</button>
+                        <button class="botao botao-pequeno botao-interesse">Tenho interesse</button>
+                    </div>
+                </article>
+
+                <article class="card card-oportunidade" data-categoria="vaga"
+                    data-detalhes="Seleção de atletas de basquete para o time sub-19. Serão avaliados fundamentos, condicionamento e trabalho em equipe em jogos-treino.">
+                    <span class="etiqueta">Vaga em clube</span>
+                    <h3>Seleção de atletas de basquete</h3>
+                    <p class="info"><strong>Campinas Basketball</strong> (fictício)</p>
+                    <p class="info">Basquete · Sub-19</p>
+                    <p class="legenda">📍 Campinas-SP · 📅 Data: 05/12/2026</p>
+                    <p class="descricao">Vagas abertas para armadores, alas e pivôs no elenco da próxima temporada.</p>
+                    <p class="aviso-ficticio">Exemplo fictício</p>
+                    <div class="botoes-card">
+                        <button class="botao botao-contorno botao-pequeno botao-detalhes">Ver detalhes</button>
+                        <button class="botao botao-pequeno botao-interesse">Tenho interesse</button>
+                    </div>
+                </article>
+
+                <article class="card card-oportunidade" data-categoria="avaliacao"
+                    data-detalhes="Avaliação de atletismo com provas de velocidade, salto e arremesso. Os participantes receberão um relatório com pontos fortes e pontos a melhorar.">
+                    <span class="etiqueta">Avaliação</span>
+                    <h3>Avaliação de atletismo</h3>
+                    <p class="info"><strong>Centro Esportivo Litoral</strong> (fictício)</p>
+                    <p class="info">Atletismo · Todas as idades</p>
+                    <p class="legenda">📍 Praia Grande-SP · 📅 Data: 10/12/2026</p>
+                    <p class="descricao">Testes de velocidade, salto e resistência para identificar novos talentos.</p>
+                    <p class="aviso-ficticio">Exemplo fictício</p>
+                    <div class="botoes-card">
+                        <button class="botao botao-contorno botao-pequeno botao-detalhes">Ver detalhes</button>
+                        <button class="botao botao-pequeno botao-interesse">Tenho interesse</button>
+                    </div>
+                </article>
+
+                <article class="card card-oportunidade" data-categoria="vaga"
+                    data-detalhes="Vaga para auxiliar técnico em escolinha de formação. Requisitos: curso de educação física ou experiência comprovada com treinos de base.">
+                    <span class="etiqueta">Vaga em clube</span>
+                    <h3>Vaga para auxiliar técnico</h3>
+                    <p class="info"><strong>Academia Esportiva Pro</strong> (fictício)</p>
+                    <p class="info">Futebol · Equipe técnica</p>
+                    <p class="legenda">📍 São Vicente-SP · 📅 Prazo: 25/11/2026</p>
+                    <p class="descricao">Oportunidade para profissionais que desejam atuar na formação de jovens atletas.</p>
+                    <p class="aviso-ficticio">Exemplo fictício</p>
+                    <div class="botoes-card">
+                        <button class="botao botao-contorno botao-pequeno botao-detalhes">Ver detalhes</button>
+                        <button class="botao botao-pequeno botao-interesse">Tenho interesse</button>
+                    </div>
+                </article>
+
+                <article class="card card-oportunidade" data-categoria="treinamento"
+                    data-detalhes="Programa de treinamento de natação com aulas técnicas três vezes por semana, indicado para atletas que querem melhorar o tempo em provas de velocidade.">
+                    <span class="etiqueta">Treinamento</span>
+                    <h3>Treinamento de natação competitiva</h3>
+                    <p class="info"><strong>Clube Aquático Maré</strong> (fictício)</p>
+                    <p class="info">Natação · 12 a 18 anos</p>
+                    <p class="legenda">📍 Guarujá-SP · 📅 Início: 04/01/2027</p>
+                    <p class="descricao">Programa de treinos técnicos para atletas que buscam evoluir em provas de velocidade.</p>
+                    <p class="aviso-ficticio">Exemplo fictício</p>
+                    <div class="botoes-card">
+                        <button class="botao botao-contorno botao-pequeno botao-detalhes">Ver detalhes</button>
+                        <button class="botao botao-pequeno botao-interesse">Tenho interesse</button>
+                    </div>
+                </article>
+
+            </div>
+
+            <p id="mensagemVaziaOportunidades" class="mensagem-vazia escondido">Nenhuma oportunidade encontrada. Tente outra busca.</p>
+
+            <!-- DICAS -->
+            <div class="dicas">
+                <h2>Dicas para atletas</h2>
+                <div class="grade-dicas">
+                    <div class="dica">✅ Mantenha seu perfil atualizado.</div>
+                    <div class="dica">🏅 Adicione suas conquistas e experiências.</div>
+                    <div class="dica">🎥 Inclua vídeos demonstrativos, quando possível.</div>
+                    <div class="dica">🔒 Verifique as informações da organização antes de compartilhar dados pessoais ou comparecer a uma avaliação.</div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- RODAPÉ -->
+    <footer class="rodape">
+        <div class="logo">Sport<span>Link</span></div>
+        <p>Conectando talentos a oportunidades. Oportunidades fictícias para demonstração.</p>
+    </footer>
+
+</body>
+</html>

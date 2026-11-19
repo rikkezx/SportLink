@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Perfil - SportLink</title>
+    <script>
+        // aplica o tema salvo antes de desenhar a página
+        if (localStorage.getItem("tema") === "escuro") {
+            document.documentElement.setAttribute("data-theme", "dark");
+        }
+    </script>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+</head>
+<body>
+
+    <!-- CABEÇALHO -->
+    <header class="cabecalho">
+        <div class="cabecalho-conteudo">
+            <a href="index.html" class="logo">Sport<span>Link</span></a>
+            <button class="botao-menu" id="botaoMenu">☰</button>
+            <nav class="navegacao" id="menuNavegacao">
+                <a href="index.html" class="link-menu">Início</a>
+                <a href="explorar.html" class="link-menu">Explorar</a>
+                <a href="feed.html" class="link-menu">Comunidade</a>
+                <a href="oportunidades.html" class="link-menu">Oportunidades</a>
+            </nav>
+            <div class="botoes-cabecalho">
+                <button class="botao-tema" id="botaoTema" type="button" aria-label="Alternar tema claro/escuro" title="Alternar tema">
+                    <svg class="icone-lua" viewBox="0 0 24 24"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"></path></svg>
+                    <svg class="icone-sol" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"></circle><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"></path></svg>
+                </button>
+                <button class="botao botao-pequeno" id="botaoEntrar">Entrar</button>
+                <div class="area-usuario escondido" id="areaUsuario">
+                    <a href="perfil.html" class="link-usuario" id="linkUsuario"><span id="nomeUsuario"></span><small id="tipoUsuario"></small></a>
+                    <button class="botao botao-contorno botao-pequeno" id="botaoSair">Sair</button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="container" style="padding-top: 24px;">
+
+        <!-- CABEÇALHO DO PERFIL (preenchido pelo script.js conforme o ?id= do endereço) -->
+        <section>
+            <img class="capa" id="capaPerfil" src="https://images.unsplash.com/photo-1574629810360-7efbbe195018?w=1200&q=80" alt="Foto de capa esportiva">
+            <div class="cabecalho-perfil">
+                <div class="avatar avatar-perfil" id="avatarPerfil">LF</div>
+                <div class="perfil-info">
+                    <div>
+                        <h1 id="nomePerfil">Lucas Ferreira</h1>
+                        <p id="linhaPerfil"></p>
+                        <p class="descricao-perfil" id="descricaoPerfil"></p>
+                    </div>
+                    <div class="perfil-botoes">
+                        <button class="botao botao-conectar">Conectar</button>
+                        <button class="botao botao-contorno" id="botaoMensagem">Enviar mensagem</button>
+                        <button class="botao botao-contorno" id="botaoEditar">✏️ Editar descrição</button>
+                    </div>
+                </div>
+                <div class="estatisticas-perfil">
+                    <div><strong id="estSeguidores">0</strong><span class="legenda">Seguidores</span></div>
+                    <div><strong id="estConexoes">0</strong><span class="legenda">Conexões</span></div>
+                    <div><strong id="estConquistas">0</strong><span class="legenda">Conquistas</span></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- BLOCOS DO PERFIL -->
+        <section class="grade-perfil">
+
+            <div class="card">
+                <h2>Sobre mim</h2>
+                <p id="textoSobre"></p>
+            </div>
+
+            <div class="card">
+                <h2>Informações esportivas</h2>
+                <ul class="lista-simples" id="listaInfo"></ul>
+            </div>
+
+            <div class="card">
+                <h2>Experiência</h2>
+                <ul class="lista-simples" id="listaExperiencia"></ul>
+            </div>
+
+            <div class="card">
+                <h2>Estatísticas</h2>
+                <div class="numeros-estatisticas" id="boxEstatisticas"></div>
+            </div>
+
+            <div class="card">
+                <h2>Conquistas</h2>
+                <ul class="lista-simples" id="listaConquistas"></ul>
+            </div>
+
+            <div class="card">
+                <h2>Publicações recentes</h2>
+                <ul class="lista-simples" id="listaPublicacoesPerfil"></ul>
+            </div>
+
+            <div class="card bloco-largo">
+                <h2>Mídia</h2>
+                <div class="midia-grade" id="midiaPerfil"></div>
+            </div>
+
+        </section>
+    </main>
+
+    <!-- RODAPÉ -->
+    <footer class="rodape">
+        <div class="logo">Sport<span>Link</span></div>
+        <p>Conectando talentos a oportunidades. Perfis fictícios para demonstração.</p>
+    </footer>
+
+</body>
+</html>

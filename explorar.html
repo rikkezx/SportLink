@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Explorar - SportLink</title>
+    <script>
+        // aplica o tema salvo antes de desenhar a página
+        if (localStorage.getItem("tema") === "escuro") {
+            document.documentElement.setAttribute("data-theme", "dark");
+        }
+    </script>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+</head>
+<body>
+
+    <!-- CABEÇALHO -->
+    <header class="cabecalho">
+        <div class="cabecalho-conteudo">
+            <a href="index.html" class="logo">Sport<span>Link</span></a>
+            <button class="botao-menu" id="botaoMenu">☰</button>
+            <nav class="navegacao" id="menuNavegacao">
+                <a href="index.html" class="link-menu">Início</a>
+                <a href="explorar.html" class="link-menu ativo">Explorar</a>
+                <a href="feed.html" class="link-menu">Comunidade</a>
+                <a href="oportunidades.html" class="link-menu">Oportunidades</a>
+            </nav>
+            <div class="botoes-cabecalho">
+                <button class="botao-tema" id="botaoTema" type="button" aria-label="Alternar tema claro/escuro" title="Alternar tema">
+                    <svg class="icone-lua" viewBox="0 0 24 24"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"></path></svg>
+                    <svg class="icone-sol" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"></circle><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"></path></svg>
+                </button>
+                <button class="botao botao-pequeno" id="botaoEntrar">Entrar</button>
+                <div class="area-usuario escondido" id="areaUsuario">
+                    <a href="perfil.html" class="link-usuario" id="linkUsuario"><span id="nomeUsuario"></span><small id="tipoUsuario"></small></a>
+                    <button class="botao botao-contorno botao-pequeno" id="botaoSair">Sair</button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section class="topo-pagina">
+            <div class="container">
+                <h1>Explore o mundo do esporte</h1>
+                <p>Encontre talentos, conheça profissionais e amplie suas conexões.</p>
+                <input type="text" id="buscaPessoas" class="campo-texto" placeholder="Buscar atletas, técnicos, olheiros ou clubes...">
+            </div>
+        </section>
+
+        <section class="container secao" style="padding-top: 8px;">
+            <!-- FILTROS -->
+            <div class="filtros">
+                <button class="filtro filtro-pessoa ativo" data-filtro="todos">Todos</button>
+                <button class="filtro filtro-pessoa" data-filtro="atleta">Atletas</button>
+                <button class="filtro filtro-pessoa" data-filtro="tecnico">Técnicos</button>
+                <button class="filtro filtro-pessoa" data-filtro="olheiro">Olheiros</button>
+                <button class="filtro filtro-pessoa" data-filtro="clube">Clubes</button>
+            </div>
+
+            <!-- CARDS (perfis fictícios) -->
+            <div class="grade">
+
+                <article class="card card-pessoa" data-tipo="atleta">
+                    <div class="pessoa-topo">
+                        <div class="avatar">LF</div>
+                        <div>
+                            <h3>Lucas Ferreira</h3>
+                            <span class="etiqueta">Atleta</span>
+                        </div>
+                    </div>
+                    <p class="info"><strong>Futebol</strong> · Atacante</p>
+                    <p class="legenda">📍 Santos-SP</p>
+                    <p class="descricao">Atacante de 18 anos, rápido e finalizador, em busca de uma oportunidade em categorias de base.</p>
+                    <div class="botoes-card">
+                        <a href="perfil.html?id=lucas" class="botao botao-contorno botao-pequeno">Ver perfil</a>
+                        <button class="botao botao-pequeno botao-conectar">Conectar</button>
+                    </div>
+                </article>
+
+                <article class="card card-pessoa" data-tipo="atleta">
+                    <div class="pessoa-topo">
+                        <div class="avatar">MC</div>
+                        <div>
+                            <h3>Mariana Costa</h3>
+                            <span class="etiqueta">Atleta</span>
+                        </div>
+                    </div>
+                    <p class="info"><strong>Vôlei</strong> · Levantadora</p>
+                    <p class="legenda">📍 São Paulo-SP</p>
+                    <p class="descricao">Levantadora com foco em estratégia de jogo e liderança em quadra.</p>
+                    <div class="botoes-card">
+                        <a href="perfil.html?id=mariana" class="botao botao-contorno botao-pequeno">Ver perfil</a>
+                        <button class="botao botao-pequeno botao-conectar">Conectar</button>
+                    </div>
+                </article>
+
+                <article class="card card-pessoa" data-tipo="atleta">
+                    <div class="pessoa-topo">
+                        <div class="avatar">RL</div>
+                        <div>
+                            <h3>Rafael Lima</h3>
+                            <span class="etiqueta">Atleta</span>
+                        </div>
+                    </div>
+                    <p class="info"><strong>Basquete</strong> · Armador</p>
+                    <p class="legenda">📍 Campinas-SP</p>
+                    <p class="descricao">Armador de 19 anos, com boa visão de jogo e muita dedicação aos treinos.</p>
+                    <div class="botoes-card">
+                        <a href="perfil.html?id=rafael" class="botao botao-contorno botao-pequeno">Ver perfil</a>
+                        <button class="botao botao-pequeno botao-conectar">Conectar</button>
+                    </div>
+                </article>
+
+                <article class="card card-pessoa" data-tipo="atleta">
+                    <div class="pessoa-topo">
+                        <div class="avatar">BN</div>
+                        <div>
+                            <h3>Beatriz Nogueira</h3>
+                            <span class="etiqueta">Atleta</span>
+                        </div>
+                    </div>
+                    <p class="info"><strong>Natação</strong> · Nado livre</p>
+                    <p class="legenda">📍 Guarujá-SP</p>
+                    <p class="descricao">Nadadora de provas de velocidade, treina seis vezes por semana.</p>
+                    <div class="botoes-card">
+                        <a href="perfil.html?id=beatriz" class="botao botao-contorno botao-pequeno">Ver perfil</a>
+                        <button class="botao botao-pequeno botao-conectar">Conectar</button>
+                    </div>
+                </article>
+
+                <article class="card card-pessoa" data-tipo="tecnico">
+                    <div class="pessoa-topo">
+                        <div class="avatar">CM</div>
+                        <div>
+                            <h3>Carlos Mendes</h3>
+                            <span class="etiqueta">Técnico</span>
+                        </div>
+                    </div>
+                    <p class="info"><strong>Futebol</strong> · Categorias de base</p>
+                    <p class="legenda">📍 Santos-SP</p>
+                    <p class="descricao">Técnico com 10 anos de experiência na formação de jovens atletas.</p>
+                    <div class="botoes-card">
+                        <a href="perfil.html?id=carlos" class="botao botao-contorno botao-pequeno">Ver perfil</a>
+                        <button class="botao botao-pequeno botao-conectar">Conectar</button>
+                    </div>
+                </article>
+
+                <article class="card card-pessoa" data-tipo="tecnico">
+                    <div class="pessoa-topo">
+                        <div class="avatar">RA</div>
+                        <div>
+                            <h3>Ricardo Alves</h3>
+                            <span class="etiqueta">Técnico</span>
+                        </div>
+                    </div>
+                    <p class="info"><strong>Vôlei</strong> · Treinador</p>
+                    <p class="legenda">📍 São Paulo-SP</p>
+                    <p class="descricao">Treinador de vôlei com foco em desenvolvimento técnico e trabalho em equipe.</p>
+                    <div class="botoes-card">
+                        <a href="perfil.html?id=ricardo" class="botao botao-contorno botao-pequeno">Ver perfil</a>
+                        <button class="botao botao-pequeno botao-conectar">Conectar</button>
+                    </div>
+                </article>
+
+                <article class="card card-pessoa" data-tipo="olheiro">
+                    <div class="pessoa-topo">
+                        <div class="avatar">AS</div>
+                        <div>
+                            <h3>Ana Souza</h3>
+                            <span class="etiqueta">Olheira</span>
+                        </div>
+                    </div>
+                    <p class="info"><strong>Modalidades diversas</strong></p>
+                    <p class="legenda">📍 São Paulo-SP</p>
+                    <p class="descricao">Olheira que acompanha competições escolares e regionais em busca de novos talentos.</p>
+                    <div class="botoes-card">
+                        <a href="perfil.html?id=ana" class="botao botao-contorno botao-pequeno">Ver perfil</a>
+                        <button class="botao botao-pequeno botao-conectar">Conectar</button>
+                    </div>
+                </article>
+
+                <article class="card card-pessoa" data-tipo="clube">
+                    <div class="pessoa-topo">
+                        <div class="avatar">ES</div>
+                        <div>
+                            <h3>Elite Sports Academy</h3>
+                            <span class="etiqueta">Clube</span>
+                        </div>
+                    </div>
+                    <p class="info"><strong>Formação esportiva</strong> · Várias modalidades</p>
+                    <p class="legenda">📍 Santos-SP</p>
+                    <p class="descricao">Clube fictício de formação esportiva que acolhe jovens atletas de diversas modalidades.</p>
+                    <div class="botoes-card">
+                        <a href="perfil.html?id=elite" class="botao botao-contorno botao-pequeno">Ver perfil</a>
+                        <button class="botao botao-pequeno botao-conectar">Conectar</button>
+                    </div>
+                </article>
+
+            </div>
+
+            <p id="mensagemVazia" class="mensagem-vazia escondido">Nenhum resultado encontrado. Tente outra busca.</p>
+        </section>
+    </main>
+
+    <!-- RODAPÉ -->
+    <footer class="rodape">
+        <div class="logo">Sport<span>Link</span></div>
+        <p>Conectando talentos a oportunidades. Perfis fictícios para demonstração.</p>
+    </footer>
+
+</body>
+</html>
