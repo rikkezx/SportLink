@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SportLink - Conectando talentos a oportunidades</title>
+    <script>
+        // aplica o tema salvo antes de desenhar a página
+        if (localStorage.getItem("tema") === "escuro") {
+            document.documentElement.setAttribute("data-theme", "dark");
+        }
+    </script>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+</head>
+<body>
+
+    <!-- CABEÇALHO -->
+    <header class="cabecalho">
+        <div class="cabecalho-conteudo">
+            <a href="index.html" class="logo">Sport<span>Link</span></a>
+            <button class="botao-menu" id="botaoMenu">☰</button>
+            <nav class="navegacao" id="menuNavegacao">
+                <a href="index.html" class="link-menu ativo">Início</a>
+                <a href="explorar.html" class="link-menu">Explorar</a>
+                <a href="feed.html" class="link-menu">Comunidade</a>
+                <a href="oportunidades.html" class="link-menu">Oportunidades</a>
+            </nav>
+            <div class="botoes-cabecalho">
+                <button class="botao-tema" id="botaoTema" type="button" aria-label="Alternar tema claro/escuro" title="Alternar tema">
+                    <svg class="icone-lua" viewBox="0 0 24 24"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"></path></svg>
+                    <svg class="icone-sol" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"></circle><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"></path></svg>
+                </button>
+                <button class="botao botao-pequeno" id="botaoEntrar">Entrar</button>
+                <div class="area-usuario escondido" id="areaUsuario">
+                    <a href="perfil.html" class="link-usuario" id="linkUsuario"><span id="nomeUsuario"></span><small id="tipoUsuario"></small></a>
+                    <button class="botao botao-contorno botao-pequeno" id="botaoSair">Sair</button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <!-- SEÇÃO PRINCIPAL -->
+        <section class="hero">
+            <div class="container hero-conteudo">
+                <div>
+                    <h1>Seu talento merece ser descoberto.</h1>
+                    <p>Conecte-se com atletas, técnicos, olheiros e clubes. Mostre suas conquistas e encontre novas oportunidades para transformar sua carreira esportiva.</p>
+                    <div class="hero-botoes">
+                        <a href="explorar.html" class="botao">Explorar atletas</a>
+                        <a href="oportunidades.html" class="botao botao-contorno">Ver oportunidades</a>
+                    </div>
+                </div>
+                <img class="hero-imagem" src="https://images.unsplash.com/photo-1431324155629-1a6deb1dec8d?w=900&q=80" alt="Jogadores de futebol em campo">
+            </div>
+        </section>
+
+        <!-- BENEFÍCIOS -->
+        <section class="secao">
+            <div class="container">
+                <div class="titulo-secao">
+                    <h2>Por que usar o SportLink?</h2>
+                </div>
+                <div class="grade">
+                    <div class="card card-beneficio">
+                        <div class="icone">🏅</div>
+                        <h3>Mostre seu talento</h3>
+                        <p>Crie um perfil esportivo e compartilhe suas conquistas.</p>
+                    </div>
+                    <div class="card card-beneficio">
+                        <div class="icone">🤝</div>
+                        <h3>Conecte-se ao esporte</h3>
+                        <p>Conheça atletas, técnicos, olheiros e clubes.</p>
+                    </div>
+                    <div class="card card-beneficio">
+                        <div class="icone">🔍</div>
+                        <h3>Descubra oportunidades</h3>
+                        <p>Encontre peneiras, avaliações, vagas e possibilidades de crescimento.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- MODALIDADES -->
+        <section class="secao secao-destaque">
+            <div class="container">
+                <div class="titulo-secao">
+                    <h2>Modalidades</h2>
+                    <p class="legenda">Esportes para todos os talentos</p>
+                </div>
+                <div class="grade-modalidades">
+                    <div class="modalidade"><span>⚽</span>Futebol</div>
+                    <div class="modalidade"><span>🏀</span>Basquete</div>
+                    <div class="modalidade"><span>🏐</span>Vôlei</div>
+                    <div class="modalidade"><span>🎾</span>Tênis</div>
+                    <div class="modalidade"><span>🏊</span>Natação</div>
+                    <div class="modalidade"><span>🏃</span>Atletismo</div>
+                    <div class="modalidade"><span>🥋</span>Lutas</div>
+                    <div class="modalidade"><span>🏆</span>Outras modalidades</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SEÇÃO FINAL -->
+        <section class="chamada-final">
+            <h2>Seu próximo passo no esporte começa aqui.</h2>
+            <a href="feed.html" class="botao">Conheça a comunidade</a>
+        </section>
+    </main>
+
+    <!-- RODAPÉ -->
+    <footer class="rodape">
+        <div class="logo">Sport<span>Link</span></div>
+        <p>Conectando talentos a oportunidades. Projeto acadêmico de demonstração.</p>
+    </footer>
+
+</body>
+</html>
